@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <title>List of Submitted Data</title>
+  </head>
+  <body>
+    <h1>Submitted Data</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="data : ${myFormDataList}">
+          <td th:text="${data.id}"></td>
+          <td th:text="${data.name}"></td>
+          <td th:text="${data.description}"></td>
+          <td>
+            <!-- <a href="/data/view"></a> -->
+            <img
+              th:src="@{'/data/view/' + ${data.id}}"
+              alt="Image"
+              width="100"
+            />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
