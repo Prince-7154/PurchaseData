@@ -1,11 +1,10 @@
-package com.example.RegistrationData.Services;
+package com.example.RegistrationData.Services.serviceImplementation;
 
 import com.example.RegistrationData.DTO.PurchaseDTO;
-import com.example.RegistrationData.ORMEntity.Customer;
 import com.example.RegistrationData.ORMEntity.Purchase;
+import com.example.RegistrationData.facades.facadesImplementation.PurchaseFacade;
 import com.example.RegistrationData.repositories.OrmRepositories.ORMCustomerRepository;
 import com.example.RegistrationData.repositories.OrmRepositories.ORMPurchaseRepository;
-import com.example.RegistrationData.repositories.PurchaseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,13 +12,11 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PurchaseService {
+public class PurchaseService implements com.example.RegistrationData.Services.serviceInterface.PurchaseService {
 
     @Autowired
     private ORMPurchaseRepository purchaseRepository;
 
-    @Autowired
-    private ORMCustomerRepository customerRepository;
 
     // Create a new purchase associated with a customer
 //    public Purchase createPurchase(Integer customerId, Purchase purchase) {

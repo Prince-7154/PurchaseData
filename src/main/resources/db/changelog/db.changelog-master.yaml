@@ -1,0 +1,156 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: Prince
+      changes:
+        - createTable:
+            tableName: customer
+            columns:
+              - column:
+                  name: customerId
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: customerName
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customerAddress
+                  type: varchar(255)
+              - column:
+                  name: customerPhone
+                  type: varchar(20)
+              - column:
+                  name: customerEmail
+                  type: varchar(255)
+
+        - createTable:
+            tableName: purchase
+            columns:
+              - column:
+                  name: purchaseId
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: productName
+                  type: varchar(255)
+              - column:
+                  name: price
+                  type: decimal(19, 2)
+              - column:
+                  name: quantity
+                  type: int
+              - column:
+                  name: customerId
+                  type: int
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_purchase_customer
+                    references: customer(customerId)
+
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: username
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: role
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: user_roles
+            columns:
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_roles_user
+                    references: user(id)
+              - column:
+                  name: role_id
+                  type: bigint
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_user_roles_role
+                    references: role(id)
+              - primaryKey:
+                  columns:
+                    - user_id
+                    - role_id
+  - changeSet:
+      id: 2
+      author: prince
+      changes:
+        - renameTable:
+            oldTableName: user
+            newTableName: users
+
+  - changeSet:
+      id: 3
+      author: prince
+      changes:
+        - renameTable:
+             oldTableName: role
+             newTableName: roles
+
+  - changeSet:
+      id: 1734594895984-1
+      author: prince
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: 1
+              - column:
+                  name: name
+                  value: 'ADMIN'
+
+  - changeSet:
+      id: 1734595106454-1
+      author: prince
+      changes:
+        - insert:
+            tableName: roles
+            columns:
+              - column:
+                  name: id
+                  value: 2
+              - column:
+                  name: name
+                  value: 'USER'
+
+

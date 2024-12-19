@@ -1,7 +1,12 @@
 package com.example.RegistrationData.DTO;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.math.BigDecimal;
 
+@Getter
+@Setter
 public class PurchaseDTO {
     private Integer purchaseId;
     private String productName;
@@ -15,47 +20,6 @@ public class PurchaseDTO {
         this.productName = productName;
         this.price = price;
         this.quantity = quantity;
-        this.customerId = customerId;
-    }
-
-    // Getters and Setters
-    public Integer getPurchaseId() {
-        return purchaseId;
-    }
-
-    public void setPurchaseId(Integer purchaseId) {
-        this.purchaseId = purchaseId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
-
-    public BigDecimal getPrice() {
-        return price;
-    }
-
-    public void setPrice(BigDecimal price) {
-        this.price = price;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
         this.customerId = customerId;
     }
 }

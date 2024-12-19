@@ -1,9 +1,14 @@
 package com.example.RegistrationData.DTO;
 
-import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
+import java.util.List;
+
+@Getter
+@Setter
 public class CustomerDTO {
     private Integer customerId;
     private String customerName;
@@ -22,54 +27,6 @@ public class CustomerDTO {
         this.purchases = purchases;
     }
 
-    // Getters and Setters
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
-    public String getCustomerName() {
-        return customerName;
-    }
-
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
-
-    public String getCustomerAddress() {
-        return customerAddress;
-    }
-
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
-
-    public String getCustomerPhone() {
-        return customerPhone;
-    }
-
-    public void setCustomerPhone(String customerPhone) {
-        this.customerPhone = customerPhone;
-    }
-
-    public String getCustomerEmail() {
-        return customerEmail;
-    }
-
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
-    }
-
-    public List<PurchaseDTO> getPurchases() {
-        return purchases;
-    }
-
-    public void setPurchases(List<PurchaseDTO> purchases) {
-        this.purchases = purchases;
-    }
 }
 
 
